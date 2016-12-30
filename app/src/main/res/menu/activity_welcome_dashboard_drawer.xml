@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_draft_transaction"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Saved Transactions" />
+        <item
+            android:id="@+id/nav_transaction"
+            android:icon="@drawable/history"
+            android:title="Transaction History" />
+
+        <item
+            android:id="@+id/nav_manage_profile"
+            android:icon="@drawable/face_profile"
+            android:title="Profile" />
+        <!--<item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Help" />-->
+        <item
+            android:id="@+id/nav_signout"
+            android:icon="@drawable/logout"
+            android:title="Signout" />
+    </group>
+
+    <!--<item android:title="Profile">
+        <menu>
+           &lt;!&ndash; <item
+                android:id="@+id/nav_signout"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />&ndash;&gt;
+            <item
+                android:id="@+id/nav_updateprofile"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>-->
+
+</menu>

@@ -1,0 +1,282 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    tools:context=".fragment.CustomerCarDetailsActivityFragment"
+    tools:showIn="@layout/activity_customer_car_details">
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/confirm"
+            android:text="@string/confirm"
+            android:textColor="@color/textColorPrimary"
+            android:gravity="center"
+            android:backgroundTint="@color/colorAccent"/>
+    </RelativeLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="false"
+        android:layout_above="@+id/footer">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="20dp"
+            >
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_background">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/label_customer_address"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:text="Address"
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:background="@color/colorPrimaryDark"
+                        android:gravity="center"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="@dimen/dp_10"
+                        android:id="@+id/customer_mobile_number"
+                        android:layout_below="@id/label_customer_address"
+                        android:hint="@string/mobile"
+                        android:inputType="phone"
+                        android:background="@drawable/textview_border_new"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:ems="10"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="@dimen/dp_10"
+                        android:id="@+id/customer_addressline1"
+                        android:layout_below="@id/customer_mobile_number"
+                        android:background="@drawable/textview_border_new"
+                        android:hint="AddressLine 1"
+                        android:nextFocusForward="@+id/customer_addressline2"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:ems="10"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="@dimen/dp_10"
+                        android:id="@+id/customer_addressline2"
+                        android:layout_below="@id/customer_addressline1"
+                        android:background="@drawable/textview_border_new"
+                        android:hint="AddressLine 2"
+                        android:nextFocusForward="@+id/customer_landmark"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:ems="10"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="@dimen/dp_10"
+                        android:id="@+id/customer_landmark"
+                        android:layout_below="@id/customer_addressline2"
+                        android:background="@drawable/textview_border_new"
+                        android:hint="land Mark"
+                        android:nextFocusForward="@+id/customer_city"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:ems="10"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="@dimen/dp_10"
+                        android:id="@+id/customer_city"
+                        android:layout_below="@id/customer_landmark"
+                        android:background="@drawable/textview_border_new"
+                        android:hint="City"
+                        android:nextFocusForward="@+id/customer_state"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:ems="10"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="@dimen/dp_10"
+                        android:id="@+id/customer_state"
+                        android:layout_below="@id/customer_city"
+                        android:background="@drawable/textview_border_new"
+
+                        android:hint="State"
+                        android:nextFocusForward="@+id/customer_pin"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:ems="10"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="@dimen/dp_10"
+                        android:id="@+id/customer_pin"
+                        android:layout_below="@id/customer_state"
+                        android:background="@drawable/textview_border_new"
+                        android:hint="Pin"
+                        android:inputType="number"
+                        android:nextFocusForward="@+id/customer_car_number"
+                        android:imeOptions="actionNext"
+                        android:singleLine="true"
+                        android:ems="10"
+                        />
+
+
+                </RelativeLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_background"
+                    android:visibility="gone">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/label_car_number"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:text="Car Number"
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:background="@color/colorPrimaryDark"
+                        android:gravity="center"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="@dimen/dp_10"
+                        android:id="@+id/customer_car_number"
+                        android:layout_below="@id/label_car_number"
+                        android:background="@drawable/textview_border_new"
+                        android:hint="OD XXX XXXX"
+                        android:imeOptions="actionDone"
+                        android:singleLine="true"
+                        android:ems="10"
+                        />
+
+                </RelativeLayout>
+
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_background">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/label_total_amount"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:text="Total Amount"
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:background="@color/colorPrimaryDark"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_margin="@dimen/dp_10"
+                        android:id="@+id/total_amount"
+                        android:layout_below="@id/label_total_amount"
+                        android:singleLine="true"
+                        android:textSize="20sp"
+                        />
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <!--<android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="40dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_background">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:id="@+id/label_payment_type"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:text="Payment Type"
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:background="@color/colorPrimaryDark"
+                        android:gravity="center"
+                        />
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/payment_type_group"
+                        android:layout_below="@+id/label_payment_type"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:paddingLeft="@dimen/dp_10"
+                        android:textSize="25sp"
+                        android:textColor="@color/cyan"
+                        android:gravity="left"
+                        android:nextFocusForward="@+id/confirm">
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/immediate_service"
+                            android:text="Immediate Service"
+                            android:theme="@style/CheckBoxStyle"/>
+                        <RadioButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/cash_delivery"
+                            android:text="Cash on Delivery"
+                            android:theme="@style/CheckBoxStyle"/>
+
+                    </RadioGroup>
+
+
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>-->
+        </LinearLayout>
+
+
+
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

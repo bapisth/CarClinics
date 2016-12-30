@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "173339412049",
+    "firebase_url": "https://carclinics-prod.firebaseio.com",
+    "project_id": "carclinics-prod",
+    "storage_bucket": "carclinics-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173339412049:android:877dd31d86ce1472",
+        "android_client_info": {
+          "package_name": "com.urja.carclinics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173339412049-b415ejepho3dme2b5lccijd81g8134em.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgJMTVRT7no4t_xQuaorFeAvABQS_yYQk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
