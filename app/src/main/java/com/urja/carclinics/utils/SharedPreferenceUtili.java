@@ -26,6 +26,7 @@ public class SharedPreferenceUtili {
     public void setDataInSharedPreference(Context context, Map<String, String> datas){
         if (datas != null){
             SharedPreferences.Editor editor = context.getSharedPreferences(AppConstants.SHARED_PREF_NAME, MODE_PRIVATE).edit();
+            editor.clear();
             for (Map.Entry<String, String> entry : datas.entrySet()) {
                 System.out.println(entry.getKey() + "/" + entry.getValue());
                 editor.putString(entry.getKey(), entry.getValue());
@@ -36,7 +37,7 @@ public class SharedPreferenceUtili {
 
     public String getDataFromSharedPreference(Context context, String key){
         SharedPreferences prefs = context.getSharedPreferences(AppConstants.SHARED_PREF_NAME, MODE_PRIVATE);
-        return prefs.getString("key", "");
+        return prefs.getString(key, "");
     }
 
 }

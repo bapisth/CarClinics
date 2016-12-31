@@ -153,7 +153,7 @@ public class WelcomeDashboardActivity extends AppCompatActivity
                 Map<String, String> data = new HashMap<String, String>();
                 data.put(AppConstants.CAR_TYPE_NAME, vehicle.getCarType());
                 SharedPreferenceUtili sharedPreferenceUtil = SharedPreferenceUtili.getInstance();
-                sharedPreferenceUtil.setDataInSharedPreference(WelcomeDashboardActivity.this, new HashMap<String, String>());
+                sharedPreferenceUtil.setDataInSharedPreference(WelcomeDashboardActivity.this, data);
 
                 Intent intent = new Intent(WelcomeDashboardActivity.this, ChooseServiceActivity.class);
                 intent.putExtra(AppConstants.CAR_ID, carSize);

@@ -181,6 +181,9 @@ public class CustomerCarDetailsActivityFragment extends Fragment implements Addr
 
             }
         });
+
+        //Get the transaction Sequence Number from Transaction
+        getTransactionSeq();
     }
 
     private void showAddressDialog(FragmentActivity activity) {
@@ -370,6 +373,8 @@ public class CustomerCarDetailsActivityFragment extends Fragment implements Addr
         Calendar calendar = Calendar.getInstance();
         int year       = calendar.get(Calendar.YEAR);
         int month      = calendar.get(Calendar.MONTH); // Jan = 0, dec = 11
+        int date       = calendar.get(Calendar.DATE);
+
         int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
         int dayOfWeek  = calendar.get(Calendar.DAY_OF_WEEK);
         int weekOfYear = calendar.get(Calendar.WEEK_OF_YEAR);
@@ -381,8 +386,8 @@ public class CustomerCarDetailsActivityFragment extends Fragment implements Addr
         int second     = calendar.get(Calendar.SECOND);
         int millisecond= calendar.get(Calendar.MILLISECOND);
 
-        String keyPrefix  = "C"+dayOfWeek+month+year+minute+second+millisecond+CAR_PREFIX+getTransactionSeq(); //Generate our Custom Key
-        final DatabaseReference transactionDataRef = mTransactionRef.child(mCurrentUserId).child(keyPrefix); //Create Only One Transaction Id
+        String keyPrefix  = date+""+month+""+year+""+"CL"+dayOfWeek+minute+second+millisecond+CAR_PREFIX+SEQ_COUNTER; //Generate our Custom Key
+        DatabaseReference transactionDataRef = mTransactionRef.child(mCurrentUserId).child(keyPrefix); //Create Only One Transaction Id
         List<ServiceRequest> readServiceRequestData = readServiceRequestData();
         OrderForServicesTransaction orderForServicesTransaction = new OrderForServicesTransaction(readServiceRequestData, true, new Date());
 
