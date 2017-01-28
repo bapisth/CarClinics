@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="warning_email">Enter Email Address</string>
+    <string name="warning_valid_email">Enter a Valid Email Address</string>
+    <string name="warning_name">Enter Name</string>
+    <string name="warning_mobile">Enter Mobile Number</string>
     <string name="warning_password">Enter Password</string>
     <string name="action_sign_in_short">Register</string>
     <string name="email">Email</string>

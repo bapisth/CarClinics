@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,38 +8,16 @@
     android:background="@drawable/app_welcoe_screen"
     android:fitsSystemWindows="true"
     tools:context=".LoginActivity">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="392dp"
         android:paddingTop="56dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
         android:layout_gravity="center_vertical"
         android:weightSum="1">
-
-        <ImageView android:src="@drawable/app_logo"
-                   android:layout_width="@dimen/logo_w_h"
-                   android:layout_height="@dimen/logo_w_h"
-                   android:layout_marginBottom="24dp"
-                   android:layout_gravity="center_horizontal"
-            android:layout_weight="0.33" />
-
-        <!-- Name Label -->
-        <!--<android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">-->
-            <!--<EditText android:id="@+id/input_name"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:inputType="textCapWords"
-                      android:hint="Name" />-->
             <EditText
                 android:id="@+id/fullName"
                 android:layout_width="match_parent"
@@ -48,7 +27,22 @@
                 android:inputType="textPersonName"
                 android:textColor="@color/textColorPrimary"
                 android:background="@color/white"
-                android:nextFocusDown="@id/email"/>
+                android:textSize="14sp"
+                android:maxLines="1"/>
+
+        <EditText
+            android:id="@+id/mobileNum"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="@dimen/dp_4"
+            android:hint="@string/mobile"
+            android:inputType="phone"
+            android:textColor="@color/textColorPrimary"
+            android:background="@color/white"
+            android:nextFocusDown="@id/email"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            android:maxLines="1"/>
 
 
         <!--</android.support.design.widget.TextInputLayout>-->
@@ -70,7 +64,9 @@
                 android:textColor="@color/textColorPrimary"
                 android:background="@color/white"
                 android:inputType="textEmailAddress"
-                android:nextFocusDown="@id/password"/>
+                android:nextFocusDown="@id/password"
+                android:textSize="14sp"
+                android:maxLines="1"/>
         <!--</android.support.design.widget.TextInputLayout>-->
 
         <!-- Password Label -->
@@ -79,18 +75,20 @@
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">-->
-            <EditText android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:paddingLeft="@dimen/dp_4"
-                android:inputType="textPassword"
-                android:textColor="@color/textColorPrimary"
-                android:background="@color/white"
-                android:layout_marginBottom="8dp"
-                android:hint="@string/hint_password"
-                android:imeActionId="@+id/keyRegister"
-                android:imeActionLabel="@string/keyboard_signup"
-                android:imeOptions="actionUnspecified"/>
+        <EditText android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="@dimen/dp_4"
+            android:inputType="textPassword"
+            android:textColor="@color/textColorPrimary"
+            android:background="@color/white"
+            android:layout_marginBottom="8dp"
+            android:hint="@string/hint_password"
+            android:imeActionId="@+id/keyRegister"
+            android:imeActionLabel="@string/keyboard_signup"
+            android:imeOptions="actionUnspecified"
+            android:textSize="14sp"
+            android:maxLines="1"/>
         <!--</android.support.design.widget.TextInputLayout>-->
 
         <!--  Mobile Label -->
@@ -119,9 +117,10 @@
             android:background="@color/colorAccent"
             android:text="@string/action_sign_in_short"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
             android:elevation="0dp"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:maxLines="1"/>
 
         <Button
             android:id="@+id/btn_reset_password"
@@ -130,7 +129,7 @@
             android:layout_marginTop="20dip"
             android:text="@string/btn_forgot_password"
             android:textAllCaps="false"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textColor="@color/white"
             android:fontFamily="cursive"
             android:elevation="2dp"
@@ -153,8 +152,16 @@
                   android:textSize="16dip"/>-->
 
     </LinearLayout>
-</ScrollView>
-    </android.support.design.widget.CoordinatorLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="112dp"
+        app:srcCompat="@drawable/app_logo"
+        android:id="@+id/imageView2"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp" />
+
+</android.support.design.widget.CoordinatorLayout>
 
 <!--
 <?xml version="1.0" encoding="utf-8"?>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.urja.motoservice.WelcomeDashboardActivity">
+    tools:context=".WelcomeDashboardActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -48,7 +48,7 @@
                         android:layout_width="112dp"
                         android:layout_height="112dp"
                         android:layout_gravity="center"
-                        android:src="@mipmap/app_launcher"
+                        android:src="@drawable/app_logo"
                         android:id="@+id/movie_detail_poster"/>
 
                 </LinearLayout>

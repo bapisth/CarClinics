@@ -50,7 +50,7 @@
             android:label="@string/title_activity_reset_password"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CustomerCarDetailsActivity"
+            android:name=".AddNewTransaction"
             android:label="@string/title_activity_customer_car_details"
             android:parentActivityName=".ModifyChoosenServiceRquestActivity"
             android:theme="@style/AppTheme" />

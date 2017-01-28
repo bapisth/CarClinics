@@ -44,6 +44,7 @@ import com.urja.carclinics.model.CustomerTransactionAddress;
 import com.urja.carclinics.model.OrderForServicesTransaction;
 import com.urja.carclinics.model.TransactionComplete;
 import com.urja.carclinics.utils.AppConstants;
+import com.urja.carclinics.utils.CurrentLoggedInUser;
 import com.urja.carclinics.utils.FirebaseRootReference;
 import com.urja.carclinics.utils.SharedPreferenceUtili;
 
@@ -95,6 +96,7 @@ public class CustomerCarDetailsActivityFragment extends Fragment implements Addr
     private String carNumber;
     private ServiceRequest carServiceRequest;
     private String customerName = "";
+    private String customerMobileNum;
     private DatabaseReference mTransactionRef = FirebaseRootReference.get_instance().getmTransactionDatabaseRef();
     private DatabaseReference mAdminNotificationRef = null;
     private DatabaseReference mCustomerRef = null;
@@ -386,8 +388,8 @@ public class CustomerCarDetailsActivityFragment extends Fragment implements Addr
         int second     = calendar.get(Calendar.SECOND);
         int millisecond= calendar.get(Calendar.MILLISECOND);
 
-        String keyPrefix  = date+""+month+""+year+""+"CL"+dayOfWeek+minute+second+millisecond+CAR_PREFIX+SEQ_COUNTER; //Generate our Custom Key
-        DatabaseReference transactionDataRef = mTransactionRef.child(mCurrentUserId).child(keyPrefix); //Create Only One Transaction Id
+        String transactionKeyPrefix  = CurrentLoggedInUser.getMobile()+SEQ_COUNTER; //Generate our Custom Key
+        DatabaseReference transactionDataRef = mTransactionRef.child(mCurrentUserId).child(transactionKeyPrefix); //Create Only One Transaction Id
         List<ServiceRequest> readServiceRequestData = readServiceRequestData();
         OrderForServicesTransaction orderForServicesTransaction = new OrderForServicesTransaction(readServiceRequestData, true, new Date());
 
@@ -450,7 +452,7 @@ public class CustomerCarDetailsActivityFragment extends Fragment implements Addr
     }
 
     private String getTransactionSeq() {
-        final DatabaseReference transactionCounter = mTransactionRef.child("transactionCounter");
+        final DatabaseReference transactionCounter = FirebaseRootReference.get_instance().getmDatabaseRootRef().child("transactionCounter");
         transactionCounter.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

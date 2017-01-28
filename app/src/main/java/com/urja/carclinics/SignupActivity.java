@@ -30,6 +30,8 @@ import com.urja.carclinics.utils.CurrentLoggedInUser;
 import com.urja.carclinics.utils.DatabaseConstants;
 
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -37,7 +39,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     private static final String TAG = MainActivity.class.getSimpleName();
     FirebaseUser mCurrentUser;
-    private EditText inputEmail, inputPassword, fullName, mobile;
+    private EditText inputEmail, inputPassword, fullName, inputMobile;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private Customer mCustomer;
     private CustomerAddress mCustomerAddress;
@@ -66,6 +68,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         //btnSignIn = (Button) findViewById(R.id.sign_in_button);
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputEmail = (EditText) findViewById(R.id.email);
+        inputMobile = (EditText) findViewById(R.id.mobileNum);
         inputPassword = (EditText) findViewById(R.id.password);
         inputPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -81,7 +84,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         //progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
         fullName = (EditText) findViewById(R.id.fullName);
-        //mobile = (EditText) findViewById(R.id.mobile);
 
         //Event Listeners
         btnResetPassword.setOnClickListener(this);
@@ -122,16 +124,46 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
 
         String email = inputEmail.getText().toString().trim();
+        String mobile = inputMobile.getText().toString().trim();
         String password = inputPassword.getText().toString().trim();
+        String name = fullName.getText().toString().toString();
 
-        if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), R.string.warning_email, Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(name)) {
+            //Toast.makeText(getApplicationContext(), R.string.warning_name, Toast.LENGTH_SHORT).show();
+            fullName.setError(getString(R.string.warning_name));
             mProgressDialog.dismiss();
             return;
         }
 
+        if (TextUtils.isEmpty(mobile)) {
+            //Toast.makeText(getApplicationContext(), R.string.warning_mobile, Toast.LENGTH_SHORT).show();
+            inputMobile.setError(getString(R.string.warning_mobile));
+            mProgressDialog.dismiss();
+            return;
+        }
+
+        if (TextUtils.isEmpty(email)) {
+            //Toast.makeText(getApplicationContext(), R.string.warning_email, Toast.LENGTH_SHORT).show();
+            inputEmail.setError(getString(R.string.warning_email));
+            mProgressDialog.dismiss();
+            return;
+        }
+
+        if (!TextUtils.isEmpty(email)){// Check if it is a valid email address
+            String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(email);
+
+            if (!matcher.matches()){
+                inputEmail.setError(getString(R.string.warning_valid_email));
+                mProgressDialog.dismiss();
+                return;
+            }
+        }
+
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getApplicationContext(), R.string.warning_password, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), R.string.warning_password, Toast.LENGTH_SHORT).show();
+            inputPassword.setError(getString(R.string.warning_password));
             mProgressDialog.dismiss();
             return;
         }
@@ -169,7 +201,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
     private void updateUserData() {
         String fullName = this.fullName.getText().toString();
-        //String mobile = this.mobile.getText().toString();
+        String mobile = this.inputMobile.getText().toString();
         if (mCurrentUserId == null) {
             mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
             CurrentLoggedInUser.setCurrentFirebaseUser(mCurrentUser);
@@ -179,7 +211,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         mCustomer = new Customer();
         mCustomer.setName(fullName);
-        mCustomer.setMobile("");
+        mCustomer.setMobile(mobile);
         mCustomer.setRegToken(FirebaseInstanceId.getInstance().getToken());//Keep the token So that From Admin We can Send Message.
 
         mCustomerAddress = new CustomerAddress();
@@ -197,6 +229,6 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         child.push();
 
         CurrentLoggedInUser.setName(fullName);
-        //CurrentLoggedInUser.setMobile(mobile);
+        CurrentLoggedInUser.setMobile(mobile);
     }
 }

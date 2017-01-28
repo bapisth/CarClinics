@@ -13,8 +13,8 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class CustomerCarDetailsActivity extends AppCompatActivity {
-    public static final String TAG = CustomerCarDetailsActivity.class.getSimpleName();
+public class AddNewTransaction extends AppCompatActivity {
+    public static final String TAG = AddNewTransaction.class.getSimpleName();
     private String mCarNumber = null;
 
     @Override

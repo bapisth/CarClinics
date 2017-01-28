@@ -118,7 +118,7 @@ public class ModifyChoosenServiceRquestActivity extends AppCompatActivity {
                     Toast.makeText(ModifyChoosenServiceRquestActivity.this, "You need to add atleast one service.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Intent intent = new Intent(ModifyChoosenServiceRquestActivity.this, CustomerCarDetailsActivity.class);
+                Intent intent = new Intent(ModifyChoosenServiceRquestActivity.this, AddNewTransaction.class);
                 startActivity(intent);
             }
         });
